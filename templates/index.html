@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review AI | Editorial</title>
+    <!-- Elegant Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="split-layout">
+        
+        <!-- Left Side: Cinematic Canvas -->
+        <div class="split-left">
+            <div class="canvas-content fade-up-slow">
+                <div class="brand">REVIEW AI.</div>
+                <h1 class="hero-title">The<br>Sentiment<br><em>of</em> Cinema.</h1>
+                <p class="hero-subtitle">An artificial intelligence exploring the emotional polarity of critical thought.</p>
+            </div>
+            <div class="texture-overlay"></div>
+        </div>
+
+        <!-- Right Side: Interaction Zone -->
+        <div class="split-right">
+            <div class="interaction-container fade-up">
+                
+                <div class="editor-section">
+                    <span class="label-micro">01. THE CRITIQUE</span>
+                    <div class="input-wrapper">
+                        <textarea id="reviewInput" placeholder="Write your review here..."></textarea>
+                        <div class="input-line"></div>
+                    </div>
+                    
+                    <div class="action-row">
+                        <button id="analyzeBtn" class="btn-pill">
+                            <span class="btn-text">Analyze Text</span>
+                            <div class="btn-hover-fill"></div>
+                        </button>
+                        <span class="hint">Cmd/Ctrl + Enter</span>
+                    </div>
+                </div>
+
+                <div id="resultContainer" class="result-section hide">
+                    <span class="label-micro">02. THE VERDICT</span>
+                    
+                    <div class="result-card">
+                        <div class="result-header">
+                            <span class="result-label">Polarity</span>
+                            <span class="result-label">Confidence</span>
+                        </div>
+                        <div class="result-body">
+                            <div id="resultBadge" class="result-value serif-value">--</div>
+                            <div class="confidence-wrapper">
+                                <span class="confidence-number"><span id="confidenceNumber">0</span>%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p id="resultDescription" class="result-description">The neural network has classified this text based on structural semantics.</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
