@@ -13,6 +13,9 @@
     --neg-color: #8B3A33; /* Muted Terracotta */
     --neg-bg: #F0E3E1;
     
+    --neu-color: #556B7D; /* Muted Slate */
+    --neu-bg: #E4E9ED;
+    
     --font-serif: 'Cormorant Garamond', serif;
     --font-sans: 'Inter', sans-serif;
 }
@@ -309,6 +312,9 @@ textarea:focus ~ .input-line::after {
 
 .theme-neg .serif-value { color: var(--neg-color); }
 .theme-neg .result-card { background: var(--neg-bg); border-color: rgba(139,58,51,0.2); }
+
+.theme-neu .serif-value { color: var(--neu-color); }
+.theme-neu .result-card { background: var(--neu-bg); border-color: rgba(85,107,125,0.2); }
 
 @media (max-width: 900px) {
     .split-layout { flex-direction: column; }

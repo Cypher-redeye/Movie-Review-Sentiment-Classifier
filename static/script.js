@@ -59,13 +59,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
             resultBadge.textContent = data.label;
             
-            resultContainer.classList.remove("theme-pos", "theme-neg");
-            resultContainer.classList.add(data.label === "Positive" ? "theme-pos" : "theme-neg");
-
+            resultContainer.classList.remove("theme-pos", "theme-neg", "theme-neu");
+            
             if (data.label === "Positive") {
+                resultContainer.classList.add("theme-pos");
                 resultDescription.textContent = "The neural network has classified this text as having a predominantly favorable emotional polarity.";
-            } else {
+            } else if (data.label === "Negative") {
+                resultContainer.classList.add("theme-neg");
                 resultDescription.textContent = "The neural network has classified this text as having a predominantly critical or unfavorable emotional polarity.";
+            } else {
+                resultContainer.classList.add("theme-neu");
+                resultDescription.textContent = "The neural network has classified this text as having a balanced or neutral emotional polarity.";
             }
 
             // Reveal the result section gracefully

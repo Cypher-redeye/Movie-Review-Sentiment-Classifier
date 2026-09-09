@@ -20,7 +20,7 @@ try:
     print("Loading Transformer model (this may take a few seconds...)")
     sentiment_pipeline = pipeline(
         "sentiment-analysis", 
-        model="distilbert-base-uncased-finetuned-sst-2-english",
+        model="cardiffnlp/twitter-roberta-base-sentiment-latest",
         device=-1 # CPU
     )
     print("✅ Transformer loaded successfully!")
@@ -49,11 +49,15 @@ def predict():
         # We truncate to 512 tokens to prevent length errors on huge essays
         result = sentiment_pipeline(text, truncation=True, max_length=512)[0]
         
-        # Output is like: {'label': 'POSITIVE', 'score': 0.9998}
-        raw_label = result['label']
+        raw_label = result['label'].lower()
         confidence = result['score']
         
-        label = "Positive" if raw_label == "POSITIVE" else "Negative"
+        if raw_label == "positive":
+            label = "Positive"
+        elif raw_label == "negative":
+            label = "Negative"
+        else:
+            label = "Neutral"
 
         return jsonify({
             'label': label,
